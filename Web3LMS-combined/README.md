@@ -1,0 +1,614 @@
+<div align="center">
+  <img src="public/favicon.svg" alt="Web3LMS Logo" width="100"/>
+  
+  <h1>Web3LMS🚀</h1>
+  <p><b>Full-Stack Learning Management System with Blockchain Integration</b></p>
+  
+<p>
+  <a href="https://nextjs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js" alt="Next.js"/>
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank">
+    <img src="https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript" alt="TypeScript"/>
+  </a>
+  <a href="https://www.djangoproject.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Django-4.2-green?logo=django" alt="Django"/>
+  </a>
+  <a href="https://www.python.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Python-3.9+-blue?logo=python" alt="Python"/>
+  </a>
+  <a href="https://www.django-rest-framework.org/" target="_blank">
+    <img src="https://img.shields.io/badge/DRF-3.14-red?logo=django" alt="Django REST Framework"/>
+  </a>
+  <a href="https://www.postgresql.org/" target="_blank">
+    <img src="https://img.shields.io/badge/PostgreSQL-13+-blue?logo=postgresql" alt="PostgreSQL"/>
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css" alt="Tailwind CSS"/>
+  </a>
+  <a href="https://jwt.io/" target="_blank">
+    <img src="https://img.shields.io/badge/JWT-Auth-orange?logo=jsonwebtokens" alt="JWT"/>
+  </a>
+  <a href="https://github.com/Harbringe/Web3Lms/blob/main/LICENSE" target="_blank">
+    <img src="https://img.shields.io/badge/License-GPL-green.svg" alt="GPL License"/>
+  </a>
+  <a href="https://cardano.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Cardano-Web3-blue?logo=cardano" alt="Cardano"/>
+  </a>
+</p>
+
+   
+</div>
+
+---
+
+<div align="justify">
+
+> **A comprehensive Learning Management System built with Django, featuring blockchain integration, certificate generation, and modern e-learning capabilities.**
+
+---
+## 🏆 Project Highlights
+
+- **🎓 Complete LMS Platform** with course management, enrollment, and progress tracking
+- **🔗 Blockchain Integration** for certificate verification and NFT minting
+- **💳 E-commerce Ready** with Razorpay payment integration
+- **📧 Email System** with Mailgun for notifications and password reset
+- **🔐 JWT Authentication** with secure token management
+- **📊 Admin Dashboard** with Jazzmin for comprehensive management
+- **🌐 RESTful API** with comprehensive documentation
+- **📱 Mobile Responsive** design for all devices
+
+---
+
+## 🗂️ Table of Contents
+
+- [🏆 Project Highlights](#-project-highlights)
+- [🗂️ Table of Contents](#️-table-of-contents)
+- [✨ Overview](#-overview)
+  - [🎯 Mission](#-mission)
+- [🔥 Features](#-features)
+  - [🛡️ Blockchain-Powered Learning](#️-blockchain-powered-learning)
+  - [🎓 For Students](#-for-students)
+  - [🧑‍🏫 For Instructors](#-for-instructors)
+  - [🌍 General](#-general)
+  - [💳 E-Commerce \& Payments](#-e-commerce--payments)
+  - [Blockchain Features](#blockchain-features)
+  - [👥 User Management](#-user-management)
+  - [📊 Analytics \& Reporting](#-analytics--reporting)
+- [🧰 Tech Stack](#-tech-stack)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [🏗️ Architecture](#️-architecture)
+  - [Key Models](#key-models)
+- [👥 User Roles \& Flows](#-user-roles--flows)
+  - [🧑‍🎓 Students](#-students)
+  - [🧑‍🏫 Instructors](#-instructors)
+  - [👨‍💼 Administrators](#-administrators)
+- [💎 What Makes Web3LMS Unique?](#-what-makes-web3lms-unique)
+- [🛠️ Setup \& Development](#️-setup--development)
+  - [🚀 Installation](#-installation)
+  - [🏃 Running Locally](#-running-locally)
+  - [🏗️ Building for Production](#️-building-for-production)
+  - [🌐 Deployment](#-deployment)
+- [📁 Directory Structure](#-directory-structure)
+- [🔧 Configuration](#-configuration)
+  - [Environment Variables](#environment-variables)
+  - [Database Setup](#database-setup)
+- [🤝 Contributing](#-contributing)
+  - [Development Guidelines](#development-guidelines)
+- [📝 License](#-license)
+- [🙌 Credits](#-credits)
+- [🔮 Future Plans](#-future-plans)
+- [💬 FAQ](#-faq)
+
+---
+
+## ✨ Overview
+
+**Web3Lms** is a next-generation Learning Management System (LMS) focused on blockchain and Web3 technology education. Built on the Cardano blockchain, it offers a decentralized, verifiable, and transparent platform for both students and instructors. The platform enables learners to earn immutable, blockchain-stored certificates and credentials, while instructors can create, manage, and monetize high-quality courses.
+
+</div>
+
+<div align="center">
+  <h3><b>Certificate Example</b></h3>
+  <img src="public/images/certificate-618963.jpg" alt="Blockchain Certificate Example" width="400"/>
+</div>
+
+<div align="justify">
+
+### 🎯 Mission
+
+> We are a cutting-edge educational platform dedicated to blockchain and Web3 technology education. Our mission is to make high-quality learning resources accessible to everyone interested in the future of technology. We offer comprehensive courses taught by industry experts, designed to take you from beginner to expert.
+
+---
+
+## 🔥 Features
+
+### 🛡️ Blockchain-Powered Learning
+
+- <b>Immutable Certificates:</b> All course completions are recorded on the Cardano blockchain, ensuring permanent, tamper-proof verification.
+- <b>Certificate Verification:</b> Anyone can verify the authenticity of a certificate using its unique ID.
+- <b>Decentralized Identity:</b> Secure, blockchain-based authentication for students and instructors.
+
+### 🎓 For Students
+
+- <b>Course Enrollment:</b> Browse, search, and enroll in a wide range of blockchain and Web3 courses.
+- <b>Learning Dashboard:</b> Track enrolled courses, completed lessons, and earned certificates.
+- <b>Wishlist:</b> Save courses for later.
+- <b>Quizzes:</b> Take quizzes to assess knowledge and unlock certificates.
+- <b>Certificate Generation:</b> Instantly generate and download blockchain-anchored certificates upon course completion.
+- <b>Profile Management:</b> Edit personal details, change password, and view learning stats.
+
+### 🧑‍🏫 For Instructors
+
+- <b>Course Creation:</b> Create, edit, and manage courses with rich content (CKEditor integration for descriptions, video uploads, etc.).
+- <b>Curriculum Builder:</b> Organize course content into modules and lectures.
+- <b>Quiz Management:</b> Add, edit, and manage quizzes and questions for each course.
+- <b>Earnings Dashboard:</b> Track revenue, student enrollments, and course performance.
+- <b>Coupon Management:</b> Create and manage discount coupons for courses.
+- <b>Student Management:</b> View enrolled students, answer questions, and manage reviews.
+
+### 🌍 General
+
+- <b>Responsive UI:</b> Modern, mobile-friendly interface using Tailwind CSS and shadcn/ui components.
+- <b>Notifications:</b> Real-time feedback and toast notifications for user actions.
+- <b>Globalization:</b> Support for multiple languages and global user base.
+- <b>Role-Based Access:</b> Separate dashboards and flows for students and instructors.
+
+### 💳 E-Commerce & Payments
+- **Shopping Cart**: Add courses to cart with quantity management
+- **Payment Integration**: Support for Razorpay payment gateways
+- **Coupon System**: Discount codes and promotional offers
+- **Order Management**: Complete order tracking and management
+- **Tax Calculation**: Automatic tax calculation based on country
+- **Wishlist**: Save courses for later purchase
+  
+### Blockchain Features
+- **Certificate Verification**: Blockchain-anchored certificates for authenticity
+- **NFT Minting**: Course completion NFTs on Cardano blockchain
+- **Wallet Integration**: Support for cryptocurrency payments
+- **Decentralized Identity**: Secure user authentication and verification
+---
+
+</div>
+
+### 👥 User Management
+
+- **Role-Based Access**: Separate dashboards for students, instructors, and admins
+- **Profile Management**: Comprehensive user profiles with customization
+- **Authentication**: JWT-based secure authentication system
+- **Password Reset**: Email-based password recovery
+- **Social Integration**: Social media profile links for instructors
+
+### 📊 Analytics & Reporting
+
+- **Instructor Dashboard**: Course performance, earnings, and student analytics
+- **Student Progress**: Detailed learning analytics and completion tracking
+- **Admin Panel**: Comprehensive platform management with Jazzmin
+- **Notification System**: Real-time notifications for various events
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+| Category          | Technology / Library | Purpose / Notes                 |
+| ----------------- | -------------------- | ------------------------------- |
+| **Framework**     | Next.js 14           | React framework with App Router |
+| **Language**      | TypeScript           | Type-safe JavaScript            |
+| **Styling**       | Tailwind CSS         | Utility-first CSS framework     |
+| **UI Components** | shadcn/ui            | Accessible component library    |
+| **State**         | Zustand              | Lightweight state management    |
+| **HTTP Client**   | Axios                | Promise-based HTTP client       |
+| **Rich Text**     | CKEditor             | WYSIWYG editor for content      |
+| **Video**         | React Player         | Video playback component        |
+| **Animations**    | Framer Motion        | Animation library               |
+| **Icons**         | Lucide React         | Icon library                    |
+
+### Backend
+| Category           | Technology / Library                | Purpose / Notes                         |
+| ------------------ | ----------------------------------- | --------------------------------------- |
+| **Framework**      | Django 4.2                          | Web framework, ORM, admin interface     |
+| **Language**       | Python 3.9+                         | Backend development                     |
+| **API**            | Django REST Framework 3.14          | RESTful API development                 |
+| **Database**       | PostgreSQL                          | Primary database (with dj-database-url) |
+| **Authentication** | JWT (djangorestframework-simplejwt) | Secure token-based authentication       |
+| **Email**          | Mailgun (django-anymail)            | Email delivery and management           |
+| **Payments**       | Razorpay                            | Payment processing                      |
+| **File Storage**   | Cloudinary / Local                  | Media file storage                      |
+| **Admin UI**       | Jazzmin                             | Enhanced Django admin interface         |
+| **Documentation**  | drf-yasg                            | API documentation (Swagger/OpenAPI)     |
+| **CORS**           | django-cors-headers                 | Cross-origin resource sharing           |
+| **Deployment**     | Render / Vercel                     | Cloud deployment platforms              |
+
+---
+
+## 🏗️ Architecture
+
+The Web3LMS backend follows a modular Django architecture with the following key components:
+
+- **Core App**: Base functionality and shared utilities
+- **UserAuths App**: User authentication and profile management
+- **API App**: RESTful API endpoints and business logic
+- **Admin Interface**: Enhanced admin panel with Jazzmin
+
+### Key Models
+
+- **User & Profile**: User authentication and profile management
+- **Teacher**: Instructor profiles and management
+- **Course**: Course creation and management
+- **Variant & VariantItem**: Course curriculum structure
+- **EnrolledCourse**: Student enrollment tracking
+- **Certificate**: Course completion certificates
+- **Cart & CartOrder**: E-commerce functionality
+- **NFT**: Blockchain integration for course NFTs
+
+---
+
+## 👥 User Roles & Flows
+
+### 🧑‍🎓 Students
+
+```mermaid
+graph LR
+  A[Register/Login] --> B[Browse Courses]
+  B --> C[Add to Cart/Wishlist]
+  C --> D[Purchase Course]
+  D --> E[Access Course Content]
+  E --> F[Complete Lessons]
+  F --> G[Take Quizzes]
+  G --> H[Earn Certificate]
+  H --> I[Get NFT]
+```
+
+### 🧑‍🏫 Instructors
+
+```mermaid
+graph LR
+  A[Register/Login] --> B[Create Teacher Profile]
+  B --> C[Create Course]
+  C --> D[Add Curriculum]
+  D --> E[Upload Content]
+  E --> F[Set Pricing]
+  F --> G[Publish Course]
+  G --> H[Manage Students]
+  H --> I[Track Earnings]
+```
+
+### 👨‍💼 Administrators
+
+```mermaid
+graph LR
+  A[Access Admin Panel] --> B[Manage Users]
+  B --> C[Review Courses]
+  C --> D[Monitor Platform]
+  D --> E[Handle Payments]
+  E --> F[Generate Reports]
+```
+
+---
+
+## 💎 What Makes Web3LMS Unique?
+
+- **Complete LMS Solution**: Full-featured learning management system
+- **Blockchain Integration**: Certificate verification and NFT minting
+- **Modern Tech Stack**: Django 4.2 with latest Python features
+- **Scalable Architecture**: Modular design for easy extension
+- **Production Ready**: Comprehensive testing and deployment setup
+- **Developer Friendly**: Well-documented API and clean codebase
+
+---
+
+## 🛠️ Setup & Development
+
+> **Prerequisites:** 
+> - Node.js 18+, npm/yarn (Frontend)
+> - Python 3.9+, PostgreSQL, pip (Backend)
+
+### 🚀 Installation
+
+#### Backend Setup
+
+```bash
+# Clone the repository
+git clone <repo-url>
+cd Web3Lms/backend
+
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Apply migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+```
+
+#### Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd ../frontend/next14frontend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
+```
+
+### 🏃 Running Locally
+
+#### Start Backend Server
+
+```bash
+cd backend
+python manage.py runserver
+# Backend runs on http://localhost:8000
+```
+
+#### Start Frontend Server
+
+```bash
+cd frontend/next14frontend
+npm run dev
+# Frontend runs on http://localhost:3000
+```
+
+Visit:
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend API**: [http://localhost:8000/api/v1/](http://localhost:8000/api/v1/)
+- **Admin Panel**: [http://localhost:8000/admin](http://localhost:8000/admin)
+- **API Docs**: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
+
+### 🏗️ Building for Production
+
+#### Backend
+
+```bash
+cd backend
+# Collect static files
+python manage.py collectstatic
+
+# Run with Gunicorn
+gunicorn backend.wsgi:application
+```
+
+#### Frontend
+
+```bash
+cd frontend/next14frontend
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+---
+
+### 🌐 Deployment
+
+#### Backend Deployment (Render)
+
+The backend is configured for deployment on **Render**:
+
+* **Platform**: [Render](https://render.com/) – zero-config cloud platform
+* **Root Directory**: Select `backend/` as the root directory
+* **Build Command**: `./build.sh`
+* **Start Command**: `gunicorn backend.wsgi:application`
+* **Database**: PostgreSQL is auto-configured if provisioned through Render
+
+#### Frontend Deployment (Vercel)
+
+The frontend is optimized for **Vercel** deployment:
+
+* **Platform**: [Vercel](https://vercel.com/) – Next.js hosting platform
+* **Root Directory**: Select `frontend/next14frontend/` as the root directory
+* **Framework Preset**: Next.js
+* **Build Command**: `npm run build`
+* **Output Directory**: `.next`
+
+Alternatively, deploy to:
+- Netlify
+- AWS Amplify
+- Railway
+- Any platform supporting Next.js
+
+---
+
+## 📁 Directory Structure
+
+```text
+Web3Lms/
+├── frontend/
+│   └── next14frontend/
+│       ├── src/
+│       │   ├── app/              # Next.js 14 App Router
+│       │   │   ├── (auth)/      # Authentication pages
+│       │   │   ├── (base)/      # Public pages
+│       │   │   ├── student/     # Student dashboard
+│       │   │   ├── instructor/  # Instructor dashboard
+│       │   │   └── courses/     # Course pages
+│       │   ├── components/      # Reusable components
+│       │   │   ├── ui/         # shadcn/ui components
+│       │   │   ├── student/    # Student components
+│       │   │   └── instructor/ # Instructor components
+│       │   ├── hooks/           # Custom React hooks
+│       │   ├── lib/             # Utility functions
+│       │   ├── providers/       # Context providers
+│       │   ├── store/           # Zustand state management
+│       │   ├── types/           # TypeScript definitions
+│       │   ├── utils/           # Helper utilities
+│       │   └── views/           # Complex view components
+│       ├── public/              # Static assets
+│       ├── next.config.mjs      # Next.js configuration
+│       ├── tailwind.config.ts   # Tailwind CSS config
+│       └── package.json         # Frontend dependencies
+│
+└── backend/
+    ├── api/                     # Main API application
+    │   ├── models.py           # Database models
+    │   ├── views.py            # API views
+    │   ├── serializer.py       # DRF serializers
+    │   ├── urls.py             # API URL routing
+    │   └── tests/              # API tests
+    ├── userauths/               # User authentication
+    │   ├── models.py           # User models
+    │   ├── views.py            # Auth views
+    │   └── tests/              # Auth tests
+    ├── backend/                 # Project settings
+    │   ├── settings.py         # Django settings
+    │   ├── urls.py             # Main URL routing
+    │   └── wsgi.py             # WSGI configuration
+    ├── templates/               # Email templates
+    ├── static/                  # Static files
+    ├── media/                   # User uploaded files
+    ├── requirements.txt         # Python dependencies
+    ├── build.sh                 # Build script for Render
+    └── manage.py                # Django management script
+```
+
+---
+
+## 🔧 Configuration
+
+### Backend Environment Variables
+
+Create a `backend/.env` file:
+
+```env
+# Database
+DB_CONN_URL=postgresql://user:password@localhost:5432/web3lms
+
+# Email (Mailgun)
+MAILGUN_API_KEY=your-mailgun-api-key
+MAILGUN_SENDER_DOMAIN=your-domain.com
+FROM_EMAIL=noreply@your-domain.com
+
+# Payments
+RAZORPAY_KEY_ID=your-razorpay-key
+RAZORPAY_KEY_SECRET=your-razorpay-secret
+
+# Frontend
+FRONTEND_SITE_URL=http://localhost:3000
+
+# Storage (set to False to use server disk for media)
+USE_CLOUDINARY=False
+
+# If using local server storage, point these to your mounted SSD paths
+MEDIA_ROOT_PATH=/var/storage/media
+STATIC_ROOT_PATH=/var/storage/staticfiles
+
+# Cloudinary (only used if USE_CLOUDINARY=True)
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# Django Super-user
+CREATE_SUPERUSER=True/False
+DJANGO_SUPERUSER_EMAIL=superuser@email.com
+DJANGO_SUPERUSER_PASSWORD=password
+DJANGO_SUPERUSER_USERNAME=superuser
+```
+
+### Frontend Environment Variables
+
+Create a `frontend/next14frontend/.env.local` file:
+
+```env
+# API Configuration
+NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000/api/v1/
+NEXT_PUBLIC_MINT_API_BASE_URL=https://vinitmint.vercel.app/
+
+# Payment
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=your-paypal-client-id
+NEXT_PUBLIC_RAZORPAY_KEY_ID=your-razorpay-key-id
+```
+
+### Database Setup
+
+```bash
+# Create PostgreSQL database
+createdb web3lms
+
+# Run migrations
+cd backend
+python manage.py migrate
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow PEP 8 style guidelines
+- Write tests for new features
+- Update documentation as needed
+- Use meaningful commit messages
+
+---
+
+## 📝 License
+
+This project is licensed under the GPL License
+
+---
+
+## 🙌 Credits
+
+- Built with [Django](https://www.djangoproject.com/), [Django REST Framework](https://www.django-rest-framework.org/), and [PostgreSQL](https://www.postgresql.org/)
+- Admin interface powered by [Jazzmin](https://github.com/farridav/django-jazzmin)
+- Payment processing by [Razorpay](https://razorpay.com/)
+- Email delivery by [Mailgun](https://www.mailgun.com/)
+- Deployment on [Vercel](https://vercel.com/)
+---
+
+## 🔮 Future Plans
+
+- [ ] Multi-chain support (Ethereum, Solana, etc.)
+- [ ] Mobile app (React Native)
+- [ ] More analytics for instructors
+- [ ] Community forum integration
+- [ ] Accessibility enhancements
+- [ ] Internationalization (i18n) support
+- [ ] Automated testing and CI/CD integration
+
+---
+
+## 💬 FAQ
+
+**Q: Can I use a different database?**  
+A: Yes! The project uses Django's ORM, so you can easily switch to MySQL, SQLite, or other supported databases.
+
+**Q: How do I customize the admin interface?**  
+A: The project uses Jazzmin for enhanced admin UI. You can customize it in `settings.py` under `JAZZMIN_SETTINGS`.
+
+**Q: Is this production-ready?**  
+A: Yes, the codebase follows Django best practices and is ready for production deployment.
+
+**Q: How do I add new payment gateways?**  
+A: The payment system is modular. You can add new gateways by extending the existing payment models and views.
+
+**Q: Can I integrate with other blockchain networks?**  
+A: Yes! The blockchain integration is designed to be extensible for multiple networks.
+
+</div>
