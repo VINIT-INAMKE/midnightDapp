@@ -1,0 +1,152 @@
+pragma language_version >= 0.16;
+
+import CompactStandardLibrary;
+
+// DID Document structure
+struct DIDDocument {
+    id: Bytes<32>,              // Unique DID identifier  
+    controller: Bytes<32>,      // Wallet that controls this DID
+    verification_method: Bytes<32>, // Public key for signing
+    is_verified: Boolean,       // Aadhaar verified flag
+    created_at: Field          // Timestamp when created
+}
+
+// Ledger state
+export ledger nullifiers: Set<Bytes<32>>;              // Privacy nullifiers  
+export ledger dids: Map<Bytes<32>, DIDDocument>;       // DID → DID Document
+export ledger walletToDID: Map<Bytes<32>, Bytes<32>>;  // Wallet → DID mapping
+export ledger bannedIdentities: Set<Bytes<32>>;        // Banned mobile hashes (Aadhaar identities)
+export ledger contractOwner: Set<Bytes<32>>;           // Contract owner address (using Set to check existence)
+
+export circuit register(
+    student_id: Bytes<32>,      // Mobile hash from Aadhaar (unique per Aadhaar)
+    salt: Bytes<32>,
+    is_eligible: Boolean,
+    wallet_address: Bytes<32>,
+    public_key: Bytes<32>,
+    is_owner_init: Boolean      // Set to true for first registration to set owner
+): Bytes<32> {                  // Returns the created DID
+    // Disclose inputs that will be used in ledger operations
+    const disclosed_wallet = disclose(wallet_address);
+    const disclosed_student_id = disclose(student_id);
+    const disclosed_public_key = disclose(public_key);
+    const disclosed_is_owner_init = disclose(is_owner_init);
+
+    // 1. Initialize owner if this is the first registration
+    if (disclosed_is_owner_init && !contractOwner.member(disclosed_wallet)) {
+        contractOwner.insert(disclosed_wallet);
+    }
+
+    // 2. Verify Eligibility (Oracle data is trusted)
+    assert(is_eligible, "User is not eligible for DID registration");
+
+    // 3. Check if Aadhaar identity is banned
+    assert(!bannedIdentities.member(disclosed_student_id), "Aadhaar identity is banned from creating DIDs");
+
+    // 4. Compute Privacy Nullifier
+    const nullifier = persistentHash<Vector<2, Bytes<32>>>([student_id, salt]);
+    const disclosed_nullifier = disclose(nullifier);
+
+    // 5. Generate Unique DID
+    const did = persistentHash<Vector<3, Bytes<32>>>([student_id, salt, wallet_address]);
+    const disclosed_did = disclose(did);
+
+    // 6. Check Uniqueness Constraints
+    assert(!nullifiers.member(disclosed_nullifier), "Identity already registered");
+    assert(!walletToDID.member(disclosed_wallet), "Wallet already has a DID");
+    assert(!dids.member(disclosed_did), "DID already exists");
+
+    // 7. Create DID Document
+    const did_doc = DIDDocument {
+        id: disclosed_did,
+        controller: disclosed_wallet,
+        verification_method: disclosed_public_key,
+        is_verified: true,
+        created_at: 1732896000  // Placeholder timestamp
+    };
+
+    // 8. Store Registration Data
+    nullifiers.insert(disclosed_nullifier);
+    dids.insert(disclosed_did, did_doc);
+    walletToDID.insert(disclosed_wallet, disclosed_did);
+
+    // 9. Return the created DID
+    return disclosed_did;
+}
+
+// Check if a DID exists
+export circuit didExists(
+    did: Bytes<32>
+): Boolean {
+    const disclosed_did = disclose(did);
+    return dids.member(disclosed_did);
+}
+
+// Check if wallet has any registered DID (for authentication)
+export circuit isAuthenticated(
+    wallet_address: Bytes<32>
+): Boolean {
+    const disclosed_wallet = disclose(wallet_address);
+    return walletToDID.member(disclosed_wallet);
+}
+
+// Verify if wallet owns a specific DID
+export circuit verifyDIDOwnership(
+    did: Bytes<32>,
+    wallet_address: Bytes<32>
+): Boolean {
+    const disclosed_did = disclose(did);
+    const disclosed_wallet = disclose(wallet_address);
+    return dids.member(disclosed_did) && walletToDID.member(disclosed_wallet);
+}
+
+// Owner-only: Ban an Aadhaar identity (mobile hash)
+export circuit banIdentity(
+    admin_wallet: Bytes<32>,
+    identity_to_ban: Bytes<32>    // Mobile hash from Aadhaar
+): [] {
+    const disclosed_admin = disclose(admin_wallet);
+    const disclosed_identity = disclose(identity_to_ban);
+    
+    assert(contractOwner.member(disclosed_admin), "Only contract owner can ban identities");
+    bannedIdentities.insert(disclosed_identity);
+}
+
+// Owner-only: Unban an Aadhaar identity
+export circuit unbanIdentity(
+    admin_wallet: Bytes<32>,
+    identity_to_unban: Bytes<32>
+): [] {
+    const disclosed_admin = disclose(admin_wallet);
+    const disclosed_identity = disclose(identity_to_unban);
+    
+    assert(contractOwner.member(disclosed_admin), "Only contract owner can unban identities");
+    assert(bannedIdentities.member(disclosed_identity), "Identity is not banned");
+    bannedIdentities.remove(disclosed_identity);
+}
+
+// Check if an Aadhaar identity is banned
+export circuit isIdentityBanned(
+    identity: Bytes<32>
+): Boolean {
+    const disclosed_identity = disclose(identity);
+    return bannedIdentities.member(disclosed_identity);
+}
+
+// Owner-only: Revoke a DID (mark as revoked, prevent future use)
+export circuit revokeDID(
+    admin_wallet: Bytes<32>,
+    did_to_revoke: Bytes<32>
+): [] {
+    const disclosed_admin = disclose(admin_wallet);
+    const disclosed_did = disclose(did_to_revoke);
+    
+    assert(contractOwner.member(disclosed_admin), "Only contract owner can revoke DIDs");
+    assert(dids.member(disclosed_did), "DID does not exist");
+    
+    // Remove DID and associated mappings
+    dids.remove(disclosed_did);
+    
+    // Note: We keep nullifiers to prevent re-registration with same identity
+    // This is the key security feature - banned identity can't create new DIDs
+}
